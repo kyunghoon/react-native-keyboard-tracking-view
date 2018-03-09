@@ -174,6 +174,9 @@ typedef NS_ENUM(NSUInteger, KeyboardTrackingScrollBehavior) {
                 if(_scrollViewToManage != nil)
                 {
                     _scrollIsInverted = CGAffineTransformEqualToTransform(_scrollViewToManage.superview.transform, CGAffineTransformMakeScale(1, -1));
+                    if (_scrollIsInverted == NO ) {
+                        _scrollViewToManage = nil;
+                    }
                 }
             }
             

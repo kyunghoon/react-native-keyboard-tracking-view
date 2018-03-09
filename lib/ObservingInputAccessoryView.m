@@ -8,6 +8,8 @@
 
 #import "ObservingInputAccessoryView.h"
 
+#define HACK_OFFSET 50
+
 @implementation ObservingInputAccessoryViewManager
 
 +(ObservingInputAccessoryViewManager*)sharedInstance
@@ -88,7 +90,7 @@
         CGFloat boundsH = self.superview.bounds.size.height;
         
         _previousKeyboardHeight = _keyboardHeight;
-		_keyboardHeight = MAX(0, self.window.bounds.size.height - (centerY - boundsH / 2) - self.intrinsicContentSize.height);
+		_keyboardHeight = MAX(0, self.window.bounds.size.height - (centerY - boundsH / 2) - self.intrinsicContentSize.height - HACK_OFFSET);
 		
         [_delegate observingInputAccessoryViewDidChangeFrame:self];
 	}
